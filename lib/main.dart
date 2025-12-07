@@ -143,15 +143,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       children: [
                                         Text("name: "),
-                                        Expanded(child: TextFormField(initialValue: counter.name, onChanged: (String new_val) {change_counter_name(counter, new_val);})),
+                                        Expanded(child: ExcludeSemantics(child: TextFormField(initialValue: counter.name, onFieldSubmitted: (String new_val) {change_counter_name(counter, new_val);}, cursorOpacityAnimates: false,))), 
+                                        // Expanded(child: TextFormField(initialValue: counter.name, onFieldSubmitted: (String new_val) {change_counter_name(counter, new_val);}, cursorOpacityAnimates: false,)),
                                       ],
                                     ),
                                     Row(
                                       children: [
                                         Text("count: "),
-                                        Expanded(child: TextFormField(initialValue: "${counter.count}", onChanged: (String new_val) {change_counter_count(counter, new_val);}, 
-                                          
-                                        )),
+                                        Expanded(child: ExcludeSemantics(child: TextFormField(initialValue: "${counter.count}", onFieldSubmitted: (String? new_val) {change_counter_count(counter, new_val!);}, cursorOpacityAnimates: false,))),
 
                                       ],
                                     ),
